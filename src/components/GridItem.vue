@@ -716,7 +716,6 @@
 
                 this.lastX = x;
                 this.lastY = y;
-
                 if (this.innerX !== pos.x || this.innerY !== pos.y) {
                     this.$emit("move", this.i, pos.x, pos.y);
                 }

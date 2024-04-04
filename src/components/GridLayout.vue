@@ -329,6 +329,8 @@
             dragEvent: function (eventName, id, x, y, h, w) {
                 //console.log(eventName + " id=" + id + ", x=" + x + ", y=" + y);
                 let l = getLayoutItem(this.layout, id);
+                l.x = x;
+                l.y = y;
                 //GetLayoutItem sometimes returns null object
                 if (l === undefined || l === null){
                     l = {x:0, y:0}
@@ -343,8 +345,8 @@
 
                 if (eventName === "dragmove" || eventName === "dragstart") {
                     this.placeholder.i = id;
-                    this.placeholder.x = l.x;
-                    this.placeholder.y = l.y;
+                    this.placeholder.x = x //l.x;
+                    this.placeholder.y = y //l.y;
                     this.placeholder.w = w;
                     this.placeholder.h = h;
                     this.$nextTick(function() {
